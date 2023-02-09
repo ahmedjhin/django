@@ -1,1 +1,17 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
 <h1>Homyye template</h1>
+{%for room in rooms%}
+<div>
+    <div>
+        {{room.id}} -- {{room.name}}
+
+    </div>
+</div>
+
+{%endfor%}
+
+{% endblock content%}

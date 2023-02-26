@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<h1>Homyye template</h1>
+
+{%for room in rooms%}
+<div>
+    <div>
+      <h5>  {{room.id}} -- <a href="/room/{{room.id}}"> {{room.name}} </a></h5>
+ 
+    </div>
+</div>
+
+{%endfor%}
+
+
+
+{% endblock content%}

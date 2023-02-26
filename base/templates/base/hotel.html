@@ -1,0 +1,18 @@
+{% extends 'main.html'%}
+
+
+dff
+
+{% block content %}
+
+{% for rooms in BEDrooms %}
+<div>
+    <div>
+
+        <h3>{{rooms.id}} -- <a href="/hotelroom/{{rooms.id}}">{{rooms.name}}</a></h3>
+
+    </div>
+</div>
+{%endfor%}
+
+{% endblock content%}

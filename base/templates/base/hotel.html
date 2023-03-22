@@ -3,14 +3,14 @@
 
 {% block content %}
 
-{% for rooms in BEDrooms %}
+
 <div>
     <div>
-
+        {% for rooms in BEDrooms %}
         <h3>{{rooms.id}} -- <a href="/hotelroom/{{rooms.id}}">{{rooms.name}}</a></h3>
-
+        {%endfor%}
     </div>
 </div>
-{%endfor%}
+
 
 {% endblock content%}

@@ -3,16 +3,17 @@
 
 {% block content %}
 
-<h1>Homyye template</h1>
+<h1>home template</h1>
 
-{%for room in rooms%}
+
 <div>
     <div>
+      {%for room in rooms%}
       <h5>  {{room.id}} -- <a href="/room/{{room.id}}"> {{room.name}} </a></h5>
- 
+      {%endfor%}
     </div>
 </div>
 
-{%endfor%}
+
 
 {% endblock content%}

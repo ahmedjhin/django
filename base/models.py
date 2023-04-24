@@ -37,11 +37,3 @@ class Message(models.Model):
 
     def __str__(self):
         return self.body[0:50]
-    
-
-class UserComplain(models.Model):
-    complain1 = models.TextField()
-    complain2 = models.TextField()
-    
-    def __str__(self):
-        return self.complain1

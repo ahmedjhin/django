@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Room
-
+from .forms import MyModelForm
 # Create your views here.
 
 
@@ -13,16 +13,19 @@ from .models import Room
 
 def home(request):
     rooms = Room.objects.all()
-    context = {'rooms':rooms}
-    return render(request,'base/home.html',context)
+    context = {'rooms': rooms}
+    return render(request, 'base/home.html', context)
+
 
 
 
 
 def room(request,pk):
     room = Room.objects.get(id=pk)
+    
     context = {'room': room}
     return render(request, 'base/room.html', context)
+
 
 def main(request):
     return render(request,'main.html')
@@ -30,3 +33,6 @@ def main(request):
 
 def navbar(request):
     return render(request,'navbar.html')
+
+
+

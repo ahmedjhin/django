@@ -1,35 +1,23 @@
 {% extends 'main.html' %} {% block content %}
 
-<h1>home template</h1>
+<h1>Home Template</h1>
 
-<div class="main-div">
-  {%for room in rooms%}
-  <div>
-    <div class="flex-bruh">
-      <p>hostname</p>
-      <span>@{{room.host.username}}</span>
-    </div>
+<div>
+
+  <a href="{% url 'creat-room' %}"> Creat Room</a>
+  <div class="main-div">
+    {%for room in rooms%}
     <div>
-      <p>rooms info and links</p>
-      <h5>{{room.id}} -- <a href="/room/{{room.id}}"> {{room.name}} </a></h5>
+        <a href="{% url 'update-room' room.id%}">Edit Room</a>
+        <span>@{{room.host.username}}</span>
+        <h5>{{room.id}} -- <a href="/room/{{room.id}}"> {{room.name}} </a></h5>
+        <small>{{room.topic.name}}</small>
+      
     </div>
-    <div class="flex-bruh">
-      <p>room topic</p>
-      <small>{{room.topic.name}}</small>
-    </div>
+    <hr />
+    {%endfor%}
   </div>
-  <hr />
-  {%endfor%}
+  
 </div>
-
-<form method="Post">
-  {% csrf_token %}
-  <label for="name"></label>
-  <input type="text" name="name" id="name" />
-  <button type="submit">submit</button>
-</form>
-
-<h1>player complains</h1>
-<h2>{}</h2>
-
+  
 {% endblock content%}

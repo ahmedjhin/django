@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Room
-from .forms import MyModelForm
+from .forms import RoomForm
+
 # Create your views here.
 
 
@@ -33,3 +34,25 @@ def main(request):
 
 def navbar(request):
     return render(request,'navbar.html')
+
+
+def creatRoom(request):
+    form = RoomForm
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    content = {'form': form}
+    return render(request,'base/room_form.html',content)
+
+
+def updateRoom(request, pk):
+    room = Room.objects.get(id=pk)
+    form = RoomForm(instance=room)
+
+    if request.method == 'POST':
+        form = RoomForm(request.POST, instance=room)
+
+    context = {'form': form}
+    return render(request, 'base/room_form.html', context)
